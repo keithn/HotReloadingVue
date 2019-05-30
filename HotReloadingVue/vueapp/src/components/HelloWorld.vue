@@ -13,11 +13,8 @@ import axios from 'axios';
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
-  data() {
-    return {
-      results: []
-    }
-  }
+  
+  results: Array<string> = [];
   async mounted() {
     this.results = (await axios.get('/api/values')).data
   }
